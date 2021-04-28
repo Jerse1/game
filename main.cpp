@@ -21,14 +21,14 @@ void Draw()
     {
         if (Direction[i] != 0)
             Position[i] += Direction[i];
-        if (Position[0] == SCREEN_WIDTH - 1 && Direction[0] == 1)
-            Position[0] = 1;
-        else if (Position[0] == 1 && Direction[0] == -1)
+        if (Position[0] == SCREEN_WIDTH && Direction[0] == 1)
+            Position[0] = 0;
+        else if (Position[0] == 0 && Direction[0] == -1)
             Position[0] = SCREEN_WIDTH;
-        else if (Position[1] == SCREEN_HEIGHT - 1 && Direction[1] == 1)
-            Position[1] = 1;
-        else if (Position[1] == 1 && Direction[1] == -1)
-            Position[1] = SCREEN_HEIGHT;
+        else if (Position[1] == SCREEN_HEIGHT -1 && Direction[1] == 1)
+            Position[1] = 0;
+        else if (Position[1] == 0 && Direction[1] == -1)
+            Position[1] = SCREEN_HEIGHT -1;
     }
 
     for (int y = 0; y < SCREEN_HEIGHT; y++)
@@ -36,10 +36,10 @@ void Draw()
         std::cout << "X";
         for (int x = 0; x < SCREEN_WIDTH; x++)
         {
-            if (y == 0 || y == SCREEN_HEIGHT - 1)
-                std::cout << "X";
-            else if (x == Position[0] && y == Position[1])
+            if (x == Position[0] && y == Position[1])
                 std::cout << "@";
+            else if (y == 0 || y == SCREEN_HEIGHT - 1)
+                std::cout << "X";
             else
                 std::cout << " ";
         }
@@ -52,7 +52,7 @@ void Start()
     while (GAME_ON == 1)
     {
         Draw();
-        Sleep(100);
+        Sleep(50);
     }
 }
 
