@@ -1,5 +1,5 @@
 # hello!
 **Welcome to my first game made using github.**
 
-# more shit
-okay so, idrk what to say here.
+# about da game
+Snake game written by me ok!
